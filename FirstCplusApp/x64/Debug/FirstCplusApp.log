@@ -1,0 +1,4 @@
+﻿  FirstCplusApp.cpp
+c:\users\useradmin\source\repos\firstcplusapp\firstcplusapp\firstcplusapp.cpp(21): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  FirstCplusApp.vcxproj -> C:\Users\Useradmin\source\repos\FirstCplusApp\x64\Debug\FirstCplusApp.exe
+  FirstCplusApp.vcxproj -> C:\Users\Useradmin\source\repos\FirstCplusApp\x64\Debug\FirstCplusApp.pdb (Partial PDB)

@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <string>
+#include <string>	// neede for the string data type
 
 using namespace std;
 
@@ -36,9 +36,11 @@ void arrayExample() {
 	const string msg = "Hello there";
 	const int arraySize = (sizeof(myArray) / sizeof(myArray[0]));
 
-	cout << msg << endl;
+	cout << "String size: " << sizeof(msg) << " Msg: " << msg << endl;
 	cout << "Array Size: " << sizeof(myArray) / 8 << endl;
 	cout << "Element size: " << sizeof(myArray[0]) << endl;
+
+	cout << "The array's address is: " << &myArray << endl;
 
 	for (int i = 0; i < arraySize; i++) {
 		myArray[i] = i + 1;

@@ -2,28 +2,47 @@
 //
 
 #include "stdafx.h"		// Used by microsoft compilers and IDEs
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <string>	// neede for the string data type
+//#include <iostream>
+//#include <cstdlib>
+//#include <ctime>
+//#include <string>	// neede for the string data type
+#include "Person.h"
+#include "Singleton.h"
 
 using namespace std;
+
+using namespace person;
+
 
 void decisionLoop();
 void arrayExample();
 int getRandomNumber();
 
+
 int main(int arg, _TCHAR* argv[])
 {
+	person::Person stackedPerson; // Memory from stack (No Delete needed)
 
-	//printf("hello\n");
-	//cout << "hello again" << endl;
-	//decisionLoop();
-	//srand(time(nullptr)); // Random number seed set only once, if more then will be likely the same number
-	//for (int i = 0; i <= 10; i++) {
-	//	cout << "Random Number: " << getRandomNumber() << endl;
-	//}
+	stackedPerson.setFirstName("Joe");
+	cout << "Hello " << stackedPerson.getFirstName() << " you are on the stack." << endl;
 
+	cout << "Number of Person Instances: " << person::Person::getInstances() << endl;
+
+	person::Person *person = NULL;
+	person = new person::Person(); // Memory allocated from heap
+	person->setAge(39);
+	person->setFirstName("Brian");
+	person->setLastName("Dodge");
+
+	cout << "Hello " << person->getFirstName() << " " << person->getLastName() << endl;
+	cout << "You are " << person->getAge() << " years old!" << endl;
+
+
+	cout << "Number of Person Instances: " << person::Person::getInstances() << endl;
+
+	delete person; // Avoid memory leak
+
+	Singleton* single = Singleton::getInstance();
 
 	arrayExample();
 

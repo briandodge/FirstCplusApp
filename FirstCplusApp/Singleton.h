@@ -22,5 +22,6 @@ public:
 		return singleton;
 	}
 
+	int getValue() { return 10; }
 
 };

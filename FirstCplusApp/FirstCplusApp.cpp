@@ -7,6 +7,7 @@
 //#include <ctime>
 //#include <string>	// neede for the string data type
 #include "Person.h"
+#include "SubClass.h"
 #include "Singleton.h"
 
 using namespace std;
@@ -19,7 +20,7 @@ void arrayExample();
 int getRandomNumber();
 
 
-int main(int arg, _TCHAR* argv[])
+int main()
 {
 	person::Person stackedPerson; // Memory from stack (No Delete needed)
 
@@ -43,6 +44,19 @@ int main(int arg, _TCHAR* argv[])
 	delete person; // Avoid memory leak
 
 	Singleton* single = Singleton::getInstance();
+
+	BaseClass* base = new SubClass();
+	SubClass* sub = new SubClass();
+
+	cout << "Base Value: " << base->getValue() << endl;
+	cout << "Sub Value: " << sub->getValue() << endl;
+	cout << "Sub to Base Value: " << sub->BaseClass::getValue() << endl;
+
+	
+	delete sub;
+
+	delete base;
+
 
 	arrayExample();
 

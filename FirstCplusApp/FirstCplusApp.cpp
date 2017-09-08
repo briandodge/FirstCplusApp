@@ -9,6 +9,9 @@
 #include "Person.h"
 #include "SubClass.h"
 #include "Singleton.h"
+#include "IAnimal.h"
+#include<stack>
+#include<list>
 
 using namespace std;
 
@@ -24,7 +27,7 @@ int main()
 {
 	person::Person stackedPerson; // Memory from stack (No Delete needed)
 
-	stackedPerson.setFirstName("Joe");
+	stackedPerson.setFirstName("Joe"s);	// The s at the end makes the value a string object instead of a char array (char[])
 	cout << "Hello " << stackedPerson.getFirstName() << " you are on the stack." << endl;
 
 	cout << "Number of Person Instances: " << person::Person::getInstances() << endl;
@@ -59,6 +62,39 @@ int main()
 
 
 	arrayExample();
+
+
+	IAnimal *dog;
+	
+	dog = new Dog();
+
+	cout << dog->speak() << endl;
+
+	delete dog;
+
+	dog = new Cat();
+
+	cout << dog->speak() << endl;
+	Cat* cat = dynamic_cast<Cat*>(dog); 
+
+	cout << (dynamic_cast<Cat*>(dog))->sleep() << endl;	// akin to ((Cat)dog).sleep() in java
+
+	//cout << ((Cat)dog)
+
+	//cout << cat->sleep() << endl;;
+
+	delete dog;
+
+
+	auto test = [](string name) { cout << name; };
+
+	test("Brian\n");
+
+	auto myValue = 71.23;		// auto checks the variable at compile time like var in C#
+
+	cout << "My Value: " << myValue << endl;
+
+	cout << R"(this is a "Raw String" !)" << endl;
 
     return 0;
 
@@ -96,7 +132,7 @@ void decisionLoop() {
 	cout << endl << "Enter your second number: ";
 	cin >> secondNumber;
 
-	if (firstNumber > secondNumber) {
+	if (firstNumber > secondNumber) {;
 		cout << endl << "first number is bigger" << endl;
 	}
 	else if (firstNumber < secondNumber) {
@@ -110,6 +146,14 @@ void decisionLoop() {
 int getRandomNumber() {
 	
 	return (rand() % 6) + 1;
+}
+
+
+void useStacks() {
+
+	list<stack<int> > list_of_stacks;
+
+
 }
 
 

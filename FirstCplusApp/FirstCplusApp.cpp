@@ -48,7 +48,7 @@ int main()
 	BaseClass* base = new SubClass();
 	SubClass* sub = new SubClass();
 
-	cout << "Base Value: " << base->getValue() << endl;
+	cout << "Base Value: " << (*base).getValue() << endl;		// var->func() equates to (*var).func()
 	cout << "Sub Value: " << sub->getValue() << endl;
 	cout << "Sub to Base Value: " << sub->BaseClass::getValue() << endl;
 

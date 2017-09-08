@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseClass.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="stdafx.h" />
